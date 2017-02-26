@@ -1,0 +1,51 @@
+<p class="container">
+  <h1 class="display-3 text-center">The Pantry</h1>
+  <br>
+</p>
+
+<div class="container">
+  <div class="alert" ng-show="page_load_error_users">
+    {{page_load_error_users}}
+  </div>
+  <div ng-show="!finished_loading_users">
+    <h4 style="color: #aaaaaa">Loading....Pleas wait</h4>
+  </div>
+  <label class="" for="">Select user</label>
+  <div class="col-md-2" ng-show="finished_loading_users">
+    <select class="form-control" ng-model="current_user" ng-options="user.name for user in users" style="width:80%;margin:auto;"></select>
+  </div>
+    <div ng-repeat="user in users" ng-show="user == current_user" class="container col-md-3 pull-right bg-info" style="border-radius: 10px;">
+        Eaten snacks:
+        <ul class="list-style">
+          <li ng-repeat="item in user.snacks"><strong class="">{{item.name}}</strong> - <i>{{item.count}}</li>
+        </ul>
+    </div>
+
+</div>
+<br>
+<div class="container">
+  <div class="alert" ng-show="page_load_error_snacks">
+    {{page_load_error_snacks}}
+  </div>
+  <div ng-show="!finished_loading_snacks">
+    <h4 style="color: #aaaaaa">Loading....Pleas wait</h4>
+  </div>
+  <div ng-show="finished_loading_snacks" >
+    <ul class="jumbotron">
+      <li ng-repeat="snack in snacks">
+        <label for="snack">
+          <div class="radio">
+            <input name="snack" type="radio" value="{{snack}}" ng-model="$parent.selected_snack">
+            <span>{{snack.name}}</span> - <span>{{snack.count}}</span>
+          </div>
+        </label>
+      </li>
+    </ul>
+</div>
+<div class="text-danger text-center container-fluid" ng-show="submit_error">
+  <p><strong>{{submit_error}}</strong></p>
+</div>
+  <br>
+  <div>
+  <button ng-click="takeSnack(selected_snack)" type="button" class="btn btn-primary btn-lg btn-block">Take Snack</button>
+  </div>

@@ -1,0 +1,14 @@
+{
+  "name": "pantry_app_server",
+  "description": "server for pantryApp",
+  "private": true,
+  "dependencies": {
+    "async": "1.x",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "morgan": "1.x",
+    "pg": "^6.1.0",
+    "sequelize": "^3.30.2",
+    "sequelize-cli": "^2.4.0"
+  }
+}
