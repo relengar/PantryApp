@@ -67,7 +67,7 @@
 
     function validateInput() {
       var result;
-      if ($scope.current_user) {
+      if ($scope.current_user == {}) {
         $scope.submit_error = "You have to select a user first";
         return false;
       }
