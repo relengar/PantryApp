@@ -1,6 +1,6 @@
 var pantryApp = angular.module('pantryApp', [ "ngRoute" ]);
 
-pantryApp.config(function($routeProvider) {
+pantryApp.config(($routeProvider) => {
   $routeProvider
   .when("/pantry", {controller: "pantryViewController",
                     templateUrl: "app/partials/pantry.html"})
